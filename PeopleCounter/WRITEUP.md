@@ -14,25 +14,27 @@ Some of the potential reasons for handling custom layers are:
 
 ## Comparing Model Performance
 
-My method(s) to compare models before and after conversion to Intermediate Representations
-were...
-
-The difference between model accuracy pre- and post-conversion was...
-
-The size of the model pre- and post-conversion was...
-
-The inference time of the model pre- and post-conversion was...
-
+I used the ### ssd_mobilenet_v2_coco ### because it's the basic model to use, downloaded from: 
+http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz
+and i converted it using the command 
+`python /opt/intel/openvino/deployment_tools/model_optimizer/mo_tf.py --input_model frozen_inference_graph.pb --tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json --tensorflow_object_detection_api_pipeline_config pipeline.config --reverse_input_channels`
+I tried it with a basic version of app.py and it gave me the following results:
+  - 736 detected persons on the test video (using 6% probability threshold)
+  - 3m16s using the time command
 ## Assess Model Use Cases
 
-Some of the potential use cases of the people counter app are...
+Some of the potential use cases of the people counter app are:
+  - knows how many persons comes into a specific place
+  - to count people entering a place
 
 Each of these use cases would be useful because...
 
 ## Assess Effects on End User Needs
 
 Lighting, model accuracy, and camera focal length/image size have different effects on a
-deployed edge model. The potential effects of each of these are as follows...
+deployed edge model. The potential effects of each of these are as follows:
+  - the loss goes up when the brightness decreases
+  - the loss goes up when lowering the resolution, that could be a good thing if lilmited by bandwith and have a limited resources
 
 ## Model Research
 
