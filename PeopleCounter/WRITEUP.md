@@ -6,9 +6,11 @@ questions.
 
 ## Explaining Custom Layers
 
-The process behind converting custom layers involves...
+The process behind converting custom layers involves using the tools provided with the model opimizer to extract the wanted layer.then implementing the layer (Using GPUs, CPUs..) and then run the conversion while specifiying layers implementation.
 
-Some of the potential reasons for handling custom layers are...
+Some of the potential reasons for handling custom layers are:
+  - Implement a layer in a diffrent way than the provided by the optimizer.
+  - Use a layer in the source layer which isn't supported by the optimizer.
 
 ## Comparing Model Performance
 
